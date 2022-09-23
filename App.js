@@ -3,9 +3,11 @@ import { Text, View, Button, TextInput, StyleSheet, Alert, Modal, Pressable } fr
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import FormScreen from "./src/screens/FormScreen";
+import PokemonScreen from './src/screens/pokemonScreen';
+import DetailScreen from "./src/screens/DetailScreen"
 
 
-function HomeScreen({ navigation }) {
+function Main({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
@@ -13,6 +15,12 @@ function HomeScreen({ navigation }) {
         title="Contact Us"
         onPress={() => {
           navigation.navigate('Form');
+        }}
+      />
+       <Button
+        title="View Catalog"
+        onPress={() => {
+          navigation.navigate('Poke');
         }}
       />
     </View>
@@ -26,6 +34,12 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Form" component={FormScreen}/>
+        <Stack.Screen name="Pokemon" component={PokemonScreen}/>
+        <Stack.Screen name="DetailScreen" component={DetailScreen}/>
+        <Stack.Screen name="Main" component={Main}/>
+
+     
+
       </Stack.Navigator>
     </NavigationContainer>
   );
