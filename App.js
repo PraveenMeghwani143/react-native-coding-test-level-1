@@ -5,7 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import FormScreen from "./src/screens/FormScreen";
 import PokemonScreen from './src/screens/pokemonScreen';
 import DetailScreen from "./src/screens/DetailScreen"
-
+import { Provider } from "react-redux";
+import { store } from "./src/store/configure-store"
 
 function Main({ navigation }) {
   return (
@@ -31,6 +32,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
+    <Provider store={store}>
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Form" component={FormScreen}/>
@@ -42,5 +44,6 @@ export default function App() {
 
       </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
   );
 }
